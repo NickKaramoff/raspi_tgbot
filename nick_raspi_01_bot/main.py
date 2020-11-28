@@ -1,12 +1,14 @@
 import logging
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 from telegram.ext import CommandHandler, Updater
 
 from .commands import start
 
-updater = Updater(
-    token="1423516108:AAEFeFpyd9Q3Ki_zM0AW-hSm1ADPV8BlWBo", use_context=True
-)
+updater = Updater(token=os.getenv("BOT_TOKEN", ""), use_context=True)
 dispatcher = updater.dispatcher
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
