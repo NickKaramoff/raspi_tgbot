@@ -41,3 +41,4 @@ jobs:
         with:
           files: "./dist/*.whl"
           repo-token: ${{ secrets.BOT_TOKEN }}
+          release-tag: ${{ github.ref }}
