@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Installing dependencies..."
-poetry install
+poetry install --no-dev
 
 echo "Installing the systemd service..."
 
