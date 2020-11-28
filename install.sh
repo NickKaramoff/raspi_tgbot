@@ -1,9 +1,9 @@
 #!/bin/sh
 
-poetry env use $(which python3)
+/home/nick/.poetry/bin/poetry env use /home/nick/.pyenv/shims/python3
 
 echo "Installing dependencies..."
-poetry install --no-dev
+/home/nick/.poetry/bin/poetry install --no-dev
 
 echo "Installing the systemd service..."
 
@@ -13,8 +13,8 @@ Description=Start nick-raspi-01-bot
 [Service]
 Type=simple
 WorkingDirectory=$(pwd)
-User=$(whoami)
-ExecStart=$(which poetry) run raspi-bot
+User=nick
+ExecStart=/home/nick/.poetry/bin/poetry run raspi-bot
 Restart=on-failure
 
 [Install]
