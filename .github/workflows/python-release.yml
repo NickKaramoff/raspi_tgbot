@@ -36,9 +36,11 @@ jobs:
           release_name: ${{ github.ref }}
           draft: false
           prerelease: false
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Upload Release Assets
         uses: AButler/upload-release-assets@v2.0
         with:
           files: "./dist/*.whl"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          release-tag: ${{ github.ref }}
+          release-tag: ${{ env.RELEASE_VERSION }}
