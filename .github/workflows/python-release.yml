@@ -4,39 +4,40 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
-  deploy:
-
+  release:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
-    - name: Run image
-      uses: abatilo/actions-poetry@v2.0.0
-    - name: Install dependencies
-      run: |
-        poetry install
-    - name: Build and publish
-      env:
-        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-      run: |
-        poetry build
-    - name: Create Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }}
-        draft: false
-        prerelease: false
-    - name: Upload Release Assets
-      uses: AButler/upload-release-assets@v2.0
-      with:
-        files: './dist/*.whl' 
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2.0.0
+      - name: Install dependencies
+        run: |
+          poetry install
+      - name: Build and publish
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          poetry build
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Assets
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: "./dist/*.whl"
+          repo-token: ${{ secrets.BOT_TOKEN }}
