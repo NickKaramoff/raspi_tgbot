@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nick-raspi-01-bot"
-version = "0.1.0"
+version = "0.1.1"
 description = "Telegram Bot for my Raspberry Pi"
 readme = "README.md"
 authors = ["Nikita Karamov <nick@karamoff.dev>"]
