@@ -1,5 +1,7 @@
 #!/bin/sh
 
+poetry env use $(which python3)
+
 echo "Installing dependencies..."
 poetry install --no-dev
 
@@ -11,8 +13,8 @@ Description=Start nick-raspi-01-bot
 [Service]
 Type=simple
 WorkingDirectory=$(pwd)
-User=nick
-ExecStart=/home/nick/.poetry/bin/poetry run raspi-bot
+User=$(whoami)
+ExecStart=$(which poetry) run raspi-bot
 Restart=on-failure
 
 [Install]
