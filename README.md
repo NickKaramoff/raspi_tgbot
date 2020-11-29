@@ -54,13 +54,13 @@ This bot can
 
    ```ini
    [Unit]
-   Description=Start nick-raspi-01-bot
+   Description=Start raspi_tgbot
 
    [Service]
    Type=simple
-   WorkingDirectory=$(pwd)
-   User=nick
-   ExecStart=/home/nick/.poetry/bin/poetry run raspi-bot
+   WorkingDirectory=/path/to/raspi_tgbot
+   User=your_user_name
+   ExecStart=/path/to/poetry run raspi-bot
    Restart=on-failure
 
    [Install]
@@ -70,8 +70,8 @@ This bot can
    Then enable and run the service:
 
    ```sh
-   sudo systemctl enable nick-raspi-01-bot
-   sudo systemctl start nick-raspi-01-bot
+   sudo systemctl enable raspi_tgbot
+   sudo systemctl start raspi_tgbot
    ```
 
 [botfather]: https://t.me/BotFather
