@@ -1,12 +1,12 @@
-# nick-raspi-01-bot
+# raspi_tgbot
 
 Telegram Bot for my Raspberry Pi
 
 ## Install
 
 ```sh
-git clone git@github.com:NickKaramoff/nick-raspi-01-bot.git
-cd nick-raspi-01-bot
+git clone https://github.com/NickKaramoff/raspi_tgbot.git
+cd raspi_tgbot
 ./install.sh
 sudo ./install-systemd.sh
 ```
