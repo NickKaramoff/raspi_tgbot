@@ -38,6 +38,16 @@ This bot can
      ```sh
      pip install -r requirements.txt
      ```
+     
+3. Create the `.env` file with the following settings
+
+   ```dotenv
+   BOT_TOKEN=??? # replace with your bot token
+   ALLOWED_IDS=1234567,87654321 # comma-separated list of user ids
+   ```
+
+   - you get the bot token when you create a bot with [BotFather][botfather]
+   - you can get user IDs of user by forwarding their messages to [GetIDs Bot][getidsbot]
 
 3. _(optional)_ Create a systemd service file in
    `/etc/systemd/system/raspi_tgbot.service` with the following content:
@@ -64,6 +74,8 @@ This bot can
    sudo systemctl start nick-raspi-01-bot
    ```
 
+[botfather]: https://t.me/BotFather
+[getidsbot]: https://t.me/getidsbot
 [latest-release]: https://github.com/NickKaramoff/raspi_tgbot/releases/latest
 [poetry]: https://python-poetry.org/
 [pyenv]: https://github.com/pyenv/pyenv
