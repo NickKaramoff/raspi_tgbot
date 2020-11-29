@@ -2,6 +2,7 @@
 name = "raspi_tgbot"
 version = "1.0.0"
 description = "Utilitary Telegram Bot for Raspberry Pi"
+license = "BSD-3-Clause"
 readme = "README.md"
 authors = ["Nikita Karamov <nick@karamoff.dev>"]
 repository = "https://github.com/NickKaramoff/raspi_tgbot.git"
