@@ -17,7 +17,7 @@ ujson = "^4.0.1"
 black = "^20.8b1"
 
 [tool.poetry.scripts]
-raspi-bot = 'raspi_tgbot.main:main'
+raspi_tgbot = 'raspi_tgbot:__main'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -21,11 +21,7 @@ dispatcher.add_handler(CommandHandler("start", start))
 dispatcher.add_handler(CommandHandler("ip", get_ip))
 
 
-def main():
+def _run_bot():
     updater.start_polling()
     updater.idle()
     exit(0)
-
-
-if __name__ == "__main__":
-    main()
