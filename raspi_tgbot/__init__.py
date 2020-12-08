@@ -1,4 +1,6 @@
 import argparse
+import os
+import sys
 
 from .bot import _run_bot
 
@@ -6,6 +8,9 @@ __version__ = "1.1.0"
 
 
 def __main():
+    if not os.name == "posix":
+        sys.exit("Only POSIX systems are supported")
+
     parser = argparse.ArgumentParser(
         "raspi_tgbot",
         description="Utilitary Telegram Bot for Raspberry Pi",
