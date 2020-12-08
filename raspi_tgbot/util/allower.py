@@ -7,7 +7,7 @@ from telegram.ext import CallbackContext
 
 def allowed_only(cmd):
     allowed_ids = os.getenv("ALLOWED_IDS", "").split(",")
-    logger = logging.getLogger("raspibot")
+    logger = logging.getLogger("raspi_tgbot")
 
     def inner(update: Update, context: CallbackContext):
         if str(update.effective_user.id) in allowed_ids:
