@@ -2,9 +2,13 @@ import argparse
 import os
 import sys
 
+from colorama import init
+
 from .bot import _run_bot
 
 __version__ = "1.1.0"
+
+init()
 
 
 def __main():
